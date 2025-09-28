@@ -1,0 +1,2538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forever Star India - International Beauty Pageants & Modeling Excellence</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gold-gradient: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+      --dark-primary: #1a1a2e;
+      --dark-secondary: #16213e;
+      --dark-accent: #0f3460;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --text-light: #718096;
+      --white: #ffffff;
+      --light-bg: #f7fafc;
+      --border-color: #e2e8f0;
+      --success: #48bb78;
+      --warning: #ed8936;
+      --error: #f56565;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* Loading Animation */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loading-content {
+      text-align: center;
+      color: var(--white);
+    }
+
+    .loading-logo {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite;
+    }
+
+    .loading-text {
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top: 2px solid var(--white);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Header Styles */
+    .header-top {
+      background: var(--dark-primary);
+      color: var(--white);
+      padding: 0.4rem 0;
+      font-size: 0.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-top::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        left: -100%;
+      }
+
+      100% {
+        left: 100%;
+      }
+    }
+
+    .header-top-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item:hover {
+      color: #4facfe;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .social-link {
+      color: var(--white);
+      font-size: 0.9rem;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .social-link:hover {
+      background: var(--accent-gradient);
+      transform: translateY(-2px) scale(1.1);
+      box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+    }
+
+    .announcement-banner {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--gold-gradient);
+      color: var(--dark-primary);
+      padding: 0.3rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      animation: glow 2s ease-in-out infinite alternate;
+      white-space: nowrap;
+      font-size: 0.75rem;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+      }
+
+      to {
+        box-shadow: 0 0 16px rgba(255, 215, 0, 0.8);
+      }
+    }
+
+    /* Main Header */
+    .main-header {
+      position: fixed;
+      top: 45px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .main-header.scrolled {
+      top: 0;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.8rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-gradient);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.2rem;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover .logo-icon {
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    .logo-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.1rem;
+    }
+
+    .logo-text span {
+      font-size: 0.65rem;
+      color: var(--text-light);
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 0.3rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      transition: left 0.3s ease;
+      z-index: -1;
+    }
+
+    .nav-link:hover {
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .nav-link:hover::before {
+      left: 0;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1001;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .nav-item:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.8rem 1.2rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      font-size: 0.85rem;
+    }
+
+    .dropdown-item:hover {
+      background: var(--light-bg);
+      border-left-color: #4facfe;
+      padding-left: 1.5rem;
+    }
+
+    .cta-button {
+      background: var(--secondary-gradient) !important;
+      color: var(--white) !important;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(245, 87, 108, 0.3);
+      border: none;
+    }
+
+    .cta-button::before {
+      background: var(--gold-gradient);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 3px;
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+
+    .mobile-menu-btn span {
+      width: 20px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      margin-top: 110px;
+      position: relative;
+      overflow: hidden;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      z-index: -2;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 26, 46, 0.7);
+      z-index: -1;
+    }
+
+    .hero-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .particle:nth-child(1) {
+      width: 8px;
+      height: 8px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .particle:nth-child(2) {
+      width: 12px;
+      height: 12px;
+      top: 60%;
+      left: 80%;
+      animation-delay: 1s;
+    }
+
+    .particle:nth-child(3) {
+      width: 6px;
+      height: 6px;
+      top: 80%;
+      left: 20%;
+      animation-delay: 2s;
+    }
+
+    .particle:nth-child(4) {
+      width: 10px;
+      height: 10px;
+      top: 30%;
+      left: 70%;
+      animation-delay: 3s;
+    }
+
+    .particle:nth-child(5) {
+      width: 5px;
+      height: 5px;
+      top: 70%;
+      left: 60%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(180deg);
+      }
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      min-height: 70vh;
+    }
+
+    .hero-content {
+      color: var(--white);
+      z-index: 10;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.4rem 0.8rem;
+      border-radius: 25px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 0%, #4facfe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      background: var(--gold-gradient);
+      color: var(--dark-primary);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--dark-primary);
+      border-color: var(--white);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 500px;
+    }
+
+    .hero-image-card {
+      position: absolute;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image-card:nth-child(1) {
+      width: 250px;
+      height: 320px;
+      top: 40px;
+      left: 0;
+      z-index: 3;
+    }
+
+    .hero-image-card:nth-child(2) {
+      width: 200px;
+      height: 280px;
+      top: 80px;
+      right: 40px;
+      z-index: 2;
+    }
+
+    .hero-image-card:nth-child(3) {
+      width: 160px;
+      height: 220px;
+      bottom: 20px;
+      left: 160px;
+      z-index: 1;
+    }
+
+    .hero-image-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      z-index: 10;
+    }
+
+    /* Features Section */
+    .features-section {
+      padding: 6rem 0;
+      background: var(--light-bg);
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--accent-gradient);
+      color: var(--white);
+      padding: 0.4rem 1rem;
+      border-radius: 25px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: var(--primary-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      color: var(--white);
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary-gradient);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: var(--text-primary);
+      transition: color 0.3s ease;
+    }
+
+    .feature-card:hover .feature-title {
+      color: var(--white);
+    }
+
+    .feature-description {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .feature-card:hover .feature-description {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Events Section */
+    .events-section {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .events-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.8rem 1.5rem;
+      border: 2px solid var(--border-color);
+      background: var(--white);
+      color: var(--text-primary);
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      font-size: 0.85rem;
+    }
+
+    .tab-btn.active {
+      background: var(--primary-gradient);
+      color: var(--white);
+      border-color: transparent;
+    }
+
+    .tab-btn:hover:not(.active) {
+      border-color: #667eea;
+      color: #667eea;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .event-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .event-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .event-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .event-card:hover .event-image img {
+      transform: scale(1.05);
+    }
+
+    .event-badge {
+      position: absolute;
+      top: 0.8rem;
+      right: 0.8rem;
+      background: var(--gold-gradient);
+      color: var(--dark-primary);
+      padding: 0.4rem 0.8rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+
+    .event-content {
+      padding: 1.5rem;
+    }
+
+    .event-date {
+      color: var(--text-light);
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .event-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .event-description {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+
+    .event-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-light);
+      font-size: 0.8rem;
+    }
+
+    .event-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #667eea;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+    }
+
+    .event-btn:hover {
+      color: #4facfe;
+      gap: 0.8rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark-primary);
+      color: var(--white);
+      padding: 3rem 0 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--primary-gradient);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .footer-section p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a:hover {
+      color: #4facfe;
+      padding-left: 0.4rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .footer-social a:hover {
+      background: var(--accent-gradient);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
+    }
+
+    /* Scroll to Top Button */
+    .scroll-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 45px;
+      height: 45px;
+      background: var(--primary-gradient);
+      border: none;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero-container {
+        gap: 2.5rem;
+      }
+
+      .hero-title {
+        font-size: 2.4rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-top {
+        padding: 0.3rem 0;
+        font-size: 0.75rem;
+      }
+
+      .header-top-content {
+        padding: 0 0.8rem;
+      }
+
+      .contact-info {
+        gap: 1rem;
+      }
+
+      .announcement-banner {
+        font-size: 0.7rem;
+        padding: 0.25rem 1rem;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-15px);
+        transition: all 0.3s ease;
+        border-top: 1px solid var(--border-color);
+        max-height: 70vh;
+        overflow-y: auto;
+      }
+
+      .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-link {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        margin-left: 1rem;
+        margin-top: 0.5rem;
+        background: var(--light-bg);
+      }
+
+      .logo-text h1 {
+        font-size: 1.2rem;
+      }
+
+      .logo-text span {
+        font-size: 0.6rem;
+      }
+
+      .logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+        margin-top: 1rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .hero-visual {
+        height: 350px;
+        order: -1;
+      }
+
+      .hero-image-card:nth-child(1) {
+        width: 200px;
+        height: 260px;
+        left: 10%;
+      }
+
+      .hero-image-card:nth-child(2) {
+        width: 160px;
+        height: 220px;
+        right: 10%;
+      }
+
+      .hero-image-card:nth-child(3) {
+        width: 130px;
+        height: 180px;
+        left: 35%;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+      }
+
+      .hero-stats {
+        gap: 1rem;
+      }
+
+      .stat-number {
+        font-size: 1.8rem;
+      }
+
+      .stat-label {
+        font-size: 0.75rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .features-grid,
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card,
+      .event-card {
+        margin: 0 0.5rem;
+      }
+
+      .events-tabs {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .tab-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        text-align: left;
+      }
+
+      .footer-section h3 {
+        font-size: 1rem;
+      }
+
+      .footer-section p {
+        font-size: 0.85rem;
+      }
+
+      .footer-links a {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 0.8rem;
+      }
+
+      .header-top-content {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .contact-info {
+        justify-content: center;
+        gap: 0.8rem;
+      }
+
+      .social-links {
+        gap: 0.6rem;
+      }
+
+      .social-link {
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+      }
+
+      .announcement-banner {
+        position: static;
+        transform: none;
+        margin: 0.3rem 0;
+        font-size: 0.65rem;
+        padding: 0.2rem 0.8rem;
+      }
+
+      .hero-section {
+        margin-top: 140px;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.85rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .feature-card,
+      .event-card {
+        margin: 0;
+        padding: 1.5rem;
+      }
+
+      .feature-title {
+        font-size: 1.2rem;
+      }
+
+      .event-title {
+        font-size: 1.1rem;
+      }
+
+      .event-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .scroll-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.6s ease;
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: all 0.6s ease;
+    }
+
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.6s ease;
+    }
+
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Notification Toast */
+    .toast {
+      position: fixed;
+      top: 90px;
+      right: 1rem;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 0.8rem 1.2rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      border-left: 3px solid var(--success);
+      transform: translateX(350px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 10000;
+      font-size: 0.85rem;
+    }
+
+    .toast.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .toast.error {
+      border-left-color: var(--error);
+    }
+
+    .toast.warning {
+      border-left-color: var(--warning);
+    }
+
+    .toast.info {
+      border-left-color: #4facfe;
+    }
+
+    /* Ripple Effect */
+    .btn,
+    .tab-btn,
+    .event-btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: scale(0);
+      animation: rippleEffect 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes rippleEffect {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <i class="fas fa-crown"></i>
+      </div>
+      <div class="loading-text">Forever Star India</div>
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+
+  <!-- Header Top -->
+  <div class="header-top">
+    <div class="header-top-content">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+91-99832-86999</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>care@fsia.in</span>
+        </div>
+      </div>
+
+      <div class="announcement-banner" id="announcementBanner">
+        <i class="fas fa-star"></i>
+        <span id="announcementText">Registration Open - Limited Seats Available!</span>
+      </div>
+
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header" id="mainHeader">
+    <nav class="navbar">
+      <a href="#home" class="logo">
+        <div class="logo-icon">
+          <img src="/images/fsia-logo.gif" alt="Forever Star India Logo" />
+        </div>
+        <div class="logo-text">
+          <span>International Beauty & Talent Platform</span>
+        </div>
+      </a>
+
+
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="#home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link">
+            About <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#vision" class="dropdown-item">
+              <i class="fas fa-eye"></i> Our Vision
+            </a>
+            <a href="#mission" class="dropdown-item">
+              <i class="fas fa-bullseye"></i> Our Mission
+            </a>
+            <a href="#team" class="dropdown-item">
+              <i class="fas fa-users"></i> Our Team
+            </a>
+            <a href="#achievements" class="dropdown-item">
+              <i class="fas fa-trophy"></i> Achievements
+            </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#events" class="nav-link">
+            Competitions <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#beauty-pageants" class="dropdown-item">
+              <i class="fas fa-crown"></i> Beauty Pageants
+            </a>
+            <a href="#modeling" class="dropdown-item">
+              <i class="fas fa-camera"></i> Fashion Shows
+            </a>
+            <a href="#talent-hunt" class="dropdown-item">
+              <i class="fas fa-star"></i> Talent Competitions
+            </a>
+            <a href="#international" class="dropdown-item">
+              <i class="fas fa-globe"></i> International Events
+            </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#services" class="nav-link">
+            Services <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#training" class="dropdown-item">
+              <i class="fas fa-graduation-cap"></i> Professional Training
+            </a>
+            <a href="#grooming" class="dropdown-item">
+              <i class="fas fa-user-tie"></i> Personality Development
+            </a>
+            <a href="#photography" class="dropdown-item">
+              <i class="fas fa-camera-retro"></i> Portfolio Photography
+            </a>
+            <a href="#consulting" class="dropdown-item">
+              <i class="fas fa-handshake"></i> Career Consulting
+            </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#gallery" class="nav-link">
+            Gallery <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#winners" class="dropdown-item">
+              <i class="fas fa-medal"></i> Hall of Fame
+            </a>
+            <a href="#events-gallery" class="dropdown-item">
+              <i class="fas fa-images"></i> Event Highlights
+            </a>
+            <a href="#behind-scenes" class="dropdown-item">
+              <i class="fas fa-video"></i> Behind the Scenes
+            </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#news" class="nav-link">News & Updates</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="#register" class="nav-link cta-button">
+            <i class="fas fa-rocket"></i> Register Now
+          </a>
+        </li>
+      </ul>
+
+      <div class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge fade-in">
+          <i class="fas fa-fire"></i>
+          <span>India's Premier Beauty Platform</span>
+        </div>
+
+        <h1 class="hero-title slide-in-left">
+          Shape Your Dreams Into Reality
+        </h1>
+
+        <p class="hero-subtitle slide-in-left">
+          Join India's most prestigious international beauty pageant and modeling platform.
+          Transform your passion into a global career with world-class training,
+          professional guidance, and unmatched opportunities.
+        </p>
+
+        <div class="hero-buttons slide-in-left">
+          <a href="#register" class="btn btn-primary">
+            <i class="fas fa-crown"></i>
+            <span>Start Your Journey</span>
+          </a>
+          <a href="#events" class="btn btn-secondary">
+            <i class="fas fa-play"></i>
+            <span>Watch Success Stories</span>
+          </a>
+        </div>
+
+        <div class="hero-stats fade-in">
+          <div class="stat-item">
+            <div class="stat-number" data-count="500">0</div>
+            <div class="stat-label">Success Stories</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="50">0</div>
+            <div class="stat-label">International Titles</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="15">0</div>
+            <div class="stat-label">Years of Excellence</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual slide-in-right">
+        <div class="hero-image-card">
+          <img src="https://4.imimg.com/data4/LE/OJ/MY-6489754/1-500x500.jpg" alt="Beauty Queen Winner" loading="lazy">
+        </div>
+        <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80" alt="Fashion Model"
+            loading="lazy">
+        </div>
+        <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&q=80" alt="Runway Model"
+            loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-gem"></i>
+          <span>Why Choose Us</span>
+        </div>
+        <h2 class="section-title fade-in">Excellence in Every Step</h2>
+        <p class="section-subtitle fade-in">
+          We provide comprehensive training, professional guidance, and unmatched opportunities
+          to help you achieve your dreams in the beauty and modeling industry.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card scale-in">
+          <div class="feature-icon">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <h3 class="feature-title">International Recognition</h3>
+          <p class="feature-description">
+            Our winners compete and win at international platforms including Miss Universe,
+            Miss World, and other prestigious global competitions.
+          </p>
+        </div>
+
+        <div class="feature-card scale-in">
+          <div class="feature-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3 class="feature-title">Expert Training</h3>
+          <p class="feature-description">
+            Learn from industry veterans, international judges, and successful former titleholders
+            who guide you through every aspect of your journey.
+          </p>
+        </div>
+
+        <div class="feature-card scale-in">
+          <div class="feature-icon">
+            <i class="fas fa-camera-retro"></i>
+          </div>
+          <h3 class="feature-title">Professional Portfolio</h3>
+          <p class="feature-description">
+            Get professionally shot portfolios, headshots, and comp cards that meet
+            international modeling and pageant industry standards.
+          </p>
+        </div>
+
+        <div class="feature-card scale-in">
+          <div class="feature-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="feature-title">Career Opportunities</h3>
+          <p class="feature-description">
+            Access exclusive modeling contracts, brand endorsements, and entertainment
+            industry opportunities through our vast network.
+          </p>
+        </div>
+
+        <div class="feature-card scale-in">
+          <div class="feature-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3 class="feature-title">Proven Track Record</h3>
+          <p class="feature-description">
+            Over 500 successful contestants, 50+ international titleholders, and
+            15 years of excellence in the beauty and modeling industry.
+          </p>
+        </div>
+
+        <div class="feature-card scale-in">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="feature-title">Supportive Community</h3>
+          <p class="feature-description">
+            Join a family of successful models, beauty queens, and industry professionals
+            who support and mentor each other throughout their careers.
+          </p>
+        </div>
+
+        <div class="feature-card scale-in">
+          <div class="feature-icon">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <h3 class="feature-title">Fitness & Wellness</h3>
+          <p class="feature-description">
+            Comprehensive fitness training, nutrition guidance, and wellness programs
+            designed specifically for models and beauty contestants.
+          </p>
+        </div>
+
+        <div class="feature-card scale-in">
+          <div class="feature-icon">
+            <i class="fas fa-microphone"></i>
+          </div>
+          <h3 class="feature-title">Communication Skills</h3>
+          <p class="feature-description">
+            Master public speaking, interview techniques, and media handling with
+            expert coaching from television personalities and communication specialists.
+          </p>
+        </div>
+
+        <div class="feature-card scale-in">
+          <div class="feature-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3 class="feature-title">Styling & Grooming</h3>
+          <p class="feature-description">
+            Learn from top fashion stylists, makeup artists, and grooming experts
+            to develop your signature look and style.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="events-section" id="events">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-calendar-star"></i>
+          <span>Competitions & Events</span>
+        </div>
+        <h2 class="section-title fade-in">Upcoming Opportunities</h2>
+        <p class="section-subtitle fade-in">
+          Participate in our prestigious competitions and events designed to showcase
+          your talent and launch your career to new heights.
+        </p>
+      </div>
+
+      <div class="events-tabs">
+        <button class="tab-btn active" data-tab="beauty">Beauty Pageants</button>
+        <button class="tab-btn" data-tab="modeling">Fashion Shows</button>
+        <button class="tab-btn" data-tab="talent">Talent Competitions</button>
+        <button class="tab-btn" data-tab="international">International Events</button>
+      </div>
+
+      <div class="events-grid">
+        <div class="event-card fade-in">
+          <div class="event-image">
+            <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?w=500&q=80"
+              alt="Miss Teen India 2025" loading="lazy">
+            <div class="event-badge">Registration Open</div>
+          </div>
+          <div class="event-content">
+            <div class="event-date">
+              <i class="fas fa-calendar"></i>
+              March 15 - April 20, 2025
+            </div>
+            <h3 class="event-title">Miss Teen India 2025</h3>
+            <p class="event-description">
+              The most prestigious teen beauty pageant in India, providing a platform
+              for young women to showcase their talent, intelligence, and beauty.
+            </p>
+            <div class="event-meta">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Mumbai, India</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>Age 16-19</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-trophy"></i>
+                <span>₹5L Prize</span>
+              </div>
+            </div>
+            <a href="#register" class="event-btn">
+              <span>Apply Now</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="event-card fade-in">
+          <div class="event-image">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=500&q=80" alt="India Fashion Week"
+              loading="lazy">
+            <div class="event-badge">Coming Soon</div>
+          </div>
+          <div class="event-content">
+            <div class="event-date">
+              <i class="fas fa-calendar"></i>
+              May 10 - May 15, 2025
+            </div>
+            <h3 class="event-title">India Fashion Week 2025</h3>
+            <p class="event-description">
+              Walk the ramp for leading fashion designers and brands at India's
+              premier fashion event, showcasing the latest trends and collections.
+            </p>
+            <div class="event-meta">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>New Delhi, India</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>All Ages</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>Top Designers</span>
+              </div>
+            </div>
+            <a href="#register" class="event-btn">
+              <span>Learn More</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="event-card fade-in">
+          <div class="event-image">
+            <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=500&q=80" alt="Talent Hunt 2025"
+              loading="lazy">
+            <div class="event-badge">Open Registration</div>
+          </div>
+          <div class="event-content">
+            <div class="event-date">
+              <i class="fas fa-calendar"></i>
+              Ongoing - December 2025
+            </div>
+            <h3 class="event-title">National Talent Hunt 2025</h3>
+            <p class="event-description">
+              Discover and showcase your unique talents in dance, singing, acting,
+              and more at India's largest multi-category talent competition.
+            </p>
+            <div class="event-meta">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Multiple Cities</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>Age 18-35</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-microphone"></i>
+                <span>Multi-Talent</span>
+              </div>
+            </div>
+            <a href="#register" class="event-btn">
+              <span>Register Today</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="event-card fade-in">
+          <div class="event-image">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=500&q=80"
+              alt="Miss Elite India 2025" loading="lazy">
+            <div class="event-badge">Elite Level</div>
+          </div>
+          <div class="event-content">
+            <div class="event-date">
+              <i class="fas fa-calendar"></i>
+              June 5 - July 10, 2025
+            </div>
+            <h3 class="event-title">Miss Elite India 2025</h3>
+            <p class="event-description">
+              Premier beauty pageant for accomplished women who want to represent
+              India at international competitions like Miss International and Miss Earth.
+            </p>
+            <div class="event-meta">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Goa, India</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>Age 20-27</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-crown"></i>
+                <span>International Path</span>
+              </div>
+            </div>
+            <a href="#register" class="event-btn">
+              <span>Apply Now</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="event-card fade-in">
+          <div class="event-image">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Supermodel Hunt 2025"
+              loading="lazy">
+            <div class="event-badge">High Fashion</div>
+          </div>
+          <div class="event-content">
+            <div class="event-date">
+              <i class="fas fa-calendar"></i>
+              August 20 - September 15, 2025
+            </div>
+            <h3 class="event-title">Supermodel Hunt 2025</h3>
+            <p class="event-description">
+              India's premier modeling competition featuring runway training,
+              portfolio shoots, and opportunities with top modeling agencies.
+            </p>
+            <div class="event-meta">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Bangalore, India</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>Age 16-25</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-camera"></i>
+                <span>Professional Modeling</span>
+              </div>
+            </div>
+            <a href="#register" class="event-btn">
+              <span>Join Competition</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="event-card fade-in">
+          <div class="event-image">
+            <img src="https://images.unsplash.com/photo-1574279606130-09958dc756f8?w=500&q=80"
+              alt="Cultural Ambassador 2025" loading="lazy">
+            <div class="event-badge">Cultural Pride</div>
+          </div>
+          <div class="event-content">
+            <div class="event-date">
+              <i class="fas fa-calendar"></i>
+              October 15 - November 20, 2025
+            </div>
+            <h3 class="event-title">Cultural Ambassador 2025</h3>
+            <p class="event-description">
+              Represent Indian culture and heritage on international platforms while
+              promoting traditional arts, crafts, and cultural values globally.
+            </p>
+            <div class="event-meta">
+              <div class="meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Rajasthan, India</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>Age 22-30</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-globe"></i>
+                <span>Cultural Focus</span>
+              </div>
+            </div>
+            <a href="#register" class="event-btn">
+              <span>Become Ambassador</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Forever Star India</h3>
+        <p>
+          India's premier international beauty pageant and modeling platform,
+          dedicated to nurturing talent and creating global success stories
+          since 2010.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+          <li><a href="#events"><i class="fas fa-calendar"></i> Events</a></li>
+          <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+          <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+          <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Services</h3>
+        <ul class="footer-links">
+          <li><a href="#training"><i class="fas fa-graduation-cap"></i> Professional Training</a></li>
+          <li><a href="#grooming"><i class="fas fa-user-tie"></i> Personality Development</a></li>
+          <li><a href="#photography"><i class="fas fa-camera"></i> Portfolio Photography</a></li>
+          <li><a href="#consulting"><i class="fas fa-handshake"></i> Career Consulting</a></li>
+          <li><a href="#workshops"><i class="fas fa-chalkboard-teacher"></i> Workshops</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="tel:+919983286999">
+              <i class="fas fa-phone"></i> +91-99832-86999
+            </a>
+          </li>
+          <li>
+            <a href="mailto:care@fsia.in">
+              <i class="fas fa-envelope"></i> care@fsia.in
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra, India
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-clock"></i> Mon-Sat: 10:00 AM - 7:00 PM
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Forever Star India. All rights reserved. | Designed with ❤️ for dreams and aspirations.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <span id="toastMessage">Registration successful!</span>
+    </div>
+  </div>
+
+  <script>
+    // Rotating announcement messages
+    const announcements = [
+      { icon: 'fas fa-star', text: 'Registration Open - Limited Seats Available!' },
+      { icon: 'fas fa-fire', text: 'Early Bird Discount - Save 30% on Registration!' },
+      { icon: 'fas fa-crown', text: 'Miss Teen India 2025 - Applications Open!' },
+      { icon: 'fas fa-globe', text: 'International Opportunities Available!' },
+      { icon: 'fas fa-trophy', text: 'Win Cash Prizes up to ₹5 Lakhs!' },
+      { icon: 'fas fa-camera', text: 'Professional Portfolio Shoot Included!' }
+    ];
+
+    let currentAnnouncementIndex = 0;
+
+    function rotateAnnouncement() {
+      const announcementBanner = document.getElementById('announcementBanner');
+      const announcementText = document.getElementById('announcementText');
+
+      if (announcementBanner && announcementText) {
+        // Fade out
+        announcementBanner.style.opacity = '0';
+
+        setTimeout(() => {
+          // Change content
+          const current = announcements[currentAnnouncementIndex];
+          announcementBanner.innerHTML = `<i class="${current.icon}"></i><span id="announcementText">${current.text}</span>`;
+
+          // Fade in
+          announcementBanner.style.opacity = '1';
+
+          // Move to next announcement
+          currentAnnouncementIndex = (currentAnnouncementIndex + 1) % announcements.length;
+        }, 300);
+      }
+    }
+
+    // Start announcement rotation
+    setInterval(rotateAnnouncement, 3000);
+
+    // Loading Screen
+    window.addEventListener('load', function () {
+      setTimeout(() => {
+        document.getElementById('loadingScreen').classList.add('hidden');
+      }, 1500);
+    });
+
+    // Header Scroll Effect
+    let lastScrollTop = 0;
+    const mainHeader = document.getElementById('mainHeader');
+
+    window.addEventListener('scroll', function () {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > 80) {
+        mainHeader.classList.add('scrolled');
+      } else {
+        mainHeader.classList.remove('scrolled');
+      }
+
+      lastScrollTop = scrollTop;
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    mobileMenuBtn.addEventListener('click', function () {
+      this.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerHeight = mainHeader.offsetHeight + 15;
+          const targetPosition = target.offsetTop - headerHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Animation on Scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animation elements
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Counter Animation
+    function animateCounter(element, start, end, duration) {
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        element.textContent = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Trigger counters when in view
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const count = parseInt(target.getAttribute('data-count'));
+          animateCounter(target, 0, count, 2000);
+          counterObserver.unobserve(target);
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-count]').forEach(counter => {
+      counterObserver.observe(counter);
+    });
+
+    // Event Tabs
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const eventCards = document.querySelectorAll('.event-card');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Show notification
+        showToast('Filtering events...', 'info');
+      });
+    });
+
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Toast Notification System
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+
+      toast.className = `toast ${type}`;
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Form Handling (for register buttons)
+    document.querySelectorAll('a[href="#register"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast('Registration form will open shortly!', 'info');
+
+        setTimeout(() => {
+          // Replace with actual form URL
+          window.open('https://forms.gle/example', '_blank');
+        }, 1000);
+      });
+    });
+
+    // Contact form handling
+    document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(link => {
+      link.addEventListener('click', () => {
+        showToast('Opening contact application...', 'info');
+      });
+    });
+
+    // Social media links
+    document.querySelectorAll('.social-link, .footer-social a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast('Social media profile will open shortly!', 'info');
+
+        setTimeout(() => {
+          const socialUrls = {
+            'facebook-f': 'https://facebook.com/foreverstarindia',
+            'instagram': 'https://instagram.com/foreverstarindia',
+            'youtube': 'https://youtube.com/foreverstarindia',
+            'linkedin-in': 'https://linkedin.com/company/foreverstarindia',
+            'twitter': 'https://twitter.com/foreverstarindia'
+          };
+
+          const icon = link.querySelector('i').classList[1];
+          const socialKey = icon.split('-').pop();
+          if (socialUrls[icon] || socialUrls[socialKey]) {
+            window.open(socialUrls[icon] || socialUrls[socialKey], '_blank');
+          }
+        }, 500);
+      });
+    });
+
+    // Enhanced scroll effects
+    let ticking = false;
+
+    function updateScrollEffects() {
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.hero-background');
+
+      if (parallax) {
+        parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+      }
+
+      const heroImages = document.querySelectorAll('.hero-image-card');
+      heroImages.forEach((img, index) => {
+        const speed = 0.1 + (index * 0.05);
+        img.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateScrollEffects);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        mobileMenuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+      }
+    });
+
+    // Add click effects to buttons
+    document.querySelectorAll('.btn, .tab-btn, .event-btn').forEach(button => {
+      button.addEventListener('click', function (e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+
+        this.appendChild(ripple);
+
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // Error handling for images
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', function () {
+        this.src = 'https://via.placeholder.com/400x300/667eea/ffffff?text=Forever+Star+India';
+        this.alt = 'Forever Star India - Image Loading';
+      });
+    });
+
+    // Add dynamic year to footer
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentYear = new Date().getFullYear();
+      const footerText = document.querySelector('.footer-bottom p');
+      if (footerText) {
+        footerText.innerHTML = footerText.innerHTML.replace('2025', currentYear);
+      }
+    });
+
+    // Initialize all functionality
+    console.log('Forever Star India website loaded successfully! 🌟');
+
+    // Show welcome message
+    setTimeout(() => {
+      showToast('Welcome to Forever Star India! ✨', 'success');
+    }, 2000);
+
+    // Add responsive image loading
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+              img.removeAttribute('data-src');
+              imageObserver.unobserve(img);
+            }
+          }
+        });
+      });
+
+      document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+      });
+    }
+
+    // Add floating animation to particles
+    document.querySelectorAll('.particle').forEach((particle, index) => {
+      particle.style.animationDelay = `${index * 0.5}s`;
+      particle.style.animationDuration = `${6 + Math.random() * 4}s`;
+    });
+  </script>
+</body>
+
+</html>
